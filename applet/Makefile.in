@@ -35,8 +35,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@WITH_GNOME_PANEL_TRUE@libexec_PROGRAMS =  \
-@WITH_GNOME_PANEL_TRUE@	GlobalMenu.PanelApplet$(EXEEXT)
+@WITH_MATE_PANEL_TRUE@libexec_PROGRAMS =  \
+@WITH_MATE_PANEL_TRUE@	GlobalMenu.PanelApplet$(EXEEXT)
 subdir = applet
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -159,8 +159,8 @@ GMENU_CFLAGS = @GMENU_CFLAGS@
 GMENU_LIBS = @GMENU_LIBS@
 GMOFILES = @GMOFILES@
 GMSGFMT = @GMSGFMT@
-GNOME_PANEL_CFLAGS = @GNOME_PANEL_CFLAGS@
-GNOME_PANEL_LIBS = @GNOME_PANEL_LIBS@
+MATE_PANEL_CFLAGS = @MATE_PANEL_CFLAGS@
+MATE_PANEL_LIBS = @MATE_PANEL_LIBS@
 GREP = @GREP@
 GTK_CFLAGS = @GTK_CFLAGS@
 GTK_LIBS = @GTK_LIBS@
@@ -298,9 +298,9 @@ VALASOURCES = \
 	workspaceselector.vala \
 	$(NULL)
 
-@WITH_GNOME_PANEL_TRUE@serverdir = $(BONOBO_SERVER_DIR)
-@WITH_GNOME_PANEL_TRUE@server_DATA = $(server_in_files:.server.in=.server)
-@WITH_GNOME_PANEL_FALSE@noinst_DATA = $(server_in_files:.server.in=.server)
+@WITH_MATE_PANEL_TRUE@serverdir = $(BONOBO_SERVER_DIR)
+@WITH_MATE_PANEL_TRUE@server_DATA = $(server_in_files:.server.in=.server)
+@WITH_MATE_PANEL_FALSE@noinst_DATA = $(server_in_files:.server.in=.server)
 server_in_in_files = GlobalMenu_PanelApplet.server.in.in
 server_in_files = GlobalMenu_PanelApplet.server.in
 GlobalMenu_PanelApplet_SOURCES = \
@@ -317,7 +317,7 @@ GlobalMenu_PanelApplet_LDFLAGS = \
 GlobalMenu_PanelApplet_LDADD = \
 		$(GTK_LIBS) \
 		$(WNCK_LIBS) \
-		$(GNOME_PANEL_LIBS) \
+		$(MATE_PANEL_LIBS) \
 		$(GMENU_LIBS) \
 		$(top_builddir)/libserver/libglobalmenu-server.la \
 		$(top_builddir)/libsettings/libsettings.la \
@@ -326,7 +326,7 @@ GlobalMenu_PanelApplet_LDADD = \
 GlobalMenu_PanelApplet_CPPFLAGS = \
 		$(WNCK_CFLAGS) \
 		$(GMENU_CFLAGS) \
-		$(GNOME_PANEL_CFLAGS) \
+		$(MATE_PANEL_CFLAGS) \
 		-I$(top_srcdir)/libserver \
 		-I$(top_srcdir)/libsettings \
 		-include $(CONFIG_HEADER) \
@@ -864,7 +864,7 @@ vala-ccode : $(VALASOURCES)
 		--pkg gconf-2.0 \
 		--pkg globalmenu-server \
 		--pkg globalmenu-settings \
-		--pkg libgnome-menu \
+		--pkg libmatemenu \
 		--pkg libnotify \
 		--pkg gdk-x11-2.0 \
 		$(VALASOURCES) 
