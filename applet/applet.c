@@ -64,10 +64,10 @@ struct _GlobalMenuPanelAppletClass {
 };
 
 struct _GlobalMenuPanelAppletPrivate {
-	GnomenuGlobalSettings* settings;
-	GnomenuMenuBarBox* menubars;
-	GnomenuGlobalMenuBar* main_menubar;
-	GnomenuMenuBar* tiny_menubar;
+	MatenuGlobalSettings* settings;
+	MatenuMenuBarBox* menubars;
+	MatenuGlobalMenuBar* main_menubar;
+	MatenuMenuBar* tiny_menubar;
 	Switcher* switcher;
 	gboolean initialized;
 	gboolean disposed;
@@ -115,9 +115,9 @@ Switcher* switcher_construct (GType object_type);
 "\t\tpixname=\"gtk-about\"/>\n" \
 "</popup>\n" \
 "\t"
-#define APPLET_APPLET_NAME _ ("gnome-applet-globalmenu")
+#define APPLET_APPLET_NAME _ ("mate-applet-globalmenu")
 #define APPLET_APPLET_ICON "globalmenu"
-#define APPLET_GCONF_SCHEMA_DIR "/schemas/apps/gnome-applet-globalmenu/prefs"
+#define APPLET_GCONF_SCHEMA_DIR "/schemas/apps/mate-applet-globalmenu/prefs"
 static void applet_applet_menu_clicked (BonoboUIComponent* component, GlobalMenuPanelApplet* self, const char* cname);
 GlobalMenuPanelApplet* applet_new (void);
 GlobalMenuPanelApplet* applet_construct (GType object_type);
@@ -156,7 +156,7 @@ static void applet_setup_popup_menu (GlobalMenuPanelApplet* self, GtkWidget* wid
 gboolean applet_get_disable_module_check (GlobalMenuPanelApplet* self);
 void applet_set_disable_module_check (GlobalMenuPanelApplet* self, gboolean value);
 gboolean applet_get_tiny_mode (GlobalMenuPanelApplet* self);
-static void _applet_on_active_window_changed_gnomenu_global_menu_bar_active_window_changed (GnomenuGlobalMenuBar* _sender, GnomenuWindow* prev_window, gpointer self);
+static void _applet_on_active_window_changed_matenu_global_menu_bar_active_window_changed (GnomenuGlobalMenuBar* _sender, GnomenuWindow* prev_window, gpointer self);
 static void _applet_on_change_background_panel_applet_change_background (GlobalMenuPanelApplet* _sender, PanelAppletBackgroundType type, GdkColor* color, GdkPixmap* pixmap, gpointer self);
 static void _applet_update_size_panel_applet_change_orient (GlobalMenuPanelApplet* _sender, PanelAppletOrient orient, gpointer self);
 static void _applet_update_size_panel_applet_change_size (GlobalMenuPanelApplet* _sender, guint size_hint, gpointer self);
